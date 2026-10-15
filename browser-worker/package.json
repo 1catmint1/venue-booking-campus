@@ -1,0 +1,8 @@
+{
+  "name": "venue-booking-review",
+  "version": "1.3.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

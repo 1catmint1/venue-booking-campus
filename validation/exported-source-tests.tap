@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: real venue photos are served intact with correct MIME and no inherited SVG
+ok 1 - real venue photos are served intact with correct MIME and no inherited SVG
+  ---
+  duration_ms: 644.4902
+  ...
+# Subtest: candidate metadata, new stylesheet, and privacy-safe contacts remain coherent
+ok 2 - candidate metadata, new stylesheet, and privacy-safe contacts remain coherent
+  ---
+  duration_ms: 10.0668
+  ...
+# Subtest: same-origin, CSRF, forged management/price/identity/order ownership denied
+ok 3 - same-origin, CSRF, forged management/price/identity/order ownership denied
+  ---
+  duration_ms: 849.8361
+  ...
+# Subtest: twelve roles/multi-role scope and revocation are server-derived
+ok 4 - twelve roles/multi-role scope and revocation are server-derived
+  ---
+  duration_ms: 4885.3975
+  ...
+# Subtest: each public visitor has isolated virtual inventory/identity and durable reload
+ok 5 - each public visitor has isolated virtual inventory/identity and durable reload
+  ---
+  duration_ms: 786.6501
+  ...
+# Subtest: table prices, simulated qualification, stale quote and frozen pending/refund totals
+ok 6 - table prices, simulated qualification, stale quote and frozen pending/refund totals
+  ---
+  duration_ms: 2679.3527
+  ...
+# Subtest: concurrent same-inventory SQLite CAS rejects all but one without lost writes
+ok 7 - concurrent same-inventory SQLite CAS rejects all but one without lost writes
+  ---
+  duration_ms: 4987.9993
+  ...
+# Subtest: FIFO wait reservation survives DB reconstruction and rejects direct queue jump
+ok 8 - FIFO wait reservation survives DB reconstruction and rejects direct queue jump
+  ---
+  duration_ms: 2798.4649
+  ...
+# Subtest: personal API key encrypted, not returned; no cloud call without consent; custom private target rejected
+ok 9 - personal API key encrypted, not returned; no cloud call without consent; custom private target rejected
+  ---
+  duration_ms: 469.3911
+  ...
+# Subtest: deferred content-versioned frontend keeps script order and never caches session data
+ok 10 - deferred content-versioned frontend keeps script order and never caches session data
+  ---
+  duration_ms: 190.1011
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18812.7299

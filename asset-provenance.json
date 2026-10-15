@@ -1,0 +1,40 @@
+{
+  "version": "1.3.0-review",
+  "photos": [
+    {
+      "file": "assets/zgc-photo.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Stadium_of_Beijing_Institute_of_Technology.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/1/14/Stadium_of_Beijing_Institute_of_Technology.jpg",
+      "author": "Flora",
+      "rights": "Public domain according to source",
+      "sha256": "1139a434e1bfb954f407fe3f6391466c53594800ce2f7e7b441b55b6e1b470d4",
+      "unmodified": true
+    },
+    {
+      "file": "assets/lx-photo.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Campus_gymnasium_of_BIT_20250212_131636.jpg",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Campus_gymnasium_of_BIT_20250212_131636.jpg/1280px-Campus_gymnasium_of_BIT_20250212_131636.jpg",
+      "author": "HoweyYuan",
+      "rights": "CC BY-SA 4.0",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sha256": "b484720c310fdab87953677dad5c4a67c67859b0990fa4091ce547ae19093bf9",
+      "resolution": [
+        1280,
+        960
+      ],
+      "changes": "Wikimedia-provided scaled thumbnail; no project image edit. CSS cover cropping in UI.",
+      "redistributionReady": true
+    }
+  ],
+  "contacts": {
+    "phone": "000-0000-0000",
+    "fictional": true,
+    "dialable": false,
+    "navLast": true,
+    "footerLastColumn": true
+  },
+  "designReferences": [
+    "https://www.nngroup.com/articles/footers/",
+    "https://www.nngroup.com/articles/customer-service-model/"
+  ]
+}

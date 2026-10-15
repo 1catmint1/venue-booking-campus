@@ -1,0 +1,11 @@
+.private/
+.hvigor/
+build-env/
+entry/build/
+work/server-data/
+work/test-data/*
+!work/test-data/.gitkeep
+*.p12
+*.p7b
+*.cer
+*.sqlite

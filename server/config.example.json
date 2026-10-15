@@ -1,0 +1,28 @@
+{
+  "mode": "local-demo",
+  "bind": "127.0.0.1",
+  "port": 18843,
+  "wechat": {
+    "appId": "",
+    "secretEnv": "VENUE_WECHAT_SECRET",
+    "callback": "https://your-approved-domain.example/api/wechat/callback",
+    "enabled": false,
+    "identitySecretEnv": "VENUE_IDENTITY_SECRET"
+  },
+  "atomgit": {
+    "enabled": false,
+    "note": "Await officially supported third-party authorization. No automatic registration."
+  },
+  "model": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "keyEnv": "VENUE_MODEL_API_KEY",
+    "maxTokens": 10000,
+    "outputTokens": 256,
+    "expiresAt": 0,
+    "paidApproved": false,
+    "enabled": false
+  },
+  "note": "Template only. No provider requests until valid server configuration and explicit per-request data consent. Production payments, identity verification, notification and privileged review adapters remain required.",
+  "publicOrigin": "http://127.0.0.1:18843"
+}

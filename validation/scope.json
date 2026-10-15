@@ -1,0 +1,15 @@
+{
+  "version": "1.3.0-review",
+  "uiRevision": "network-r6",
+  "uiAccepted": true,
+  "portableTests": {
+    "pass": 10,
+    "fail": 0
+  },
+  "nativeRebuild": "CPU_GUARD_BLOCKED_NO_CURRENT_HAP",
+  "nativeDevice": "NOT_TESTED_V1_3",
+  "public10000": "NOT_COMPLETED",
+  "schoolAndPayment": "LOCAL_SIMULATION",
+  "officialTemplate": "NOT_APPLIED_CONTENT_DRAFT_ONLY",
+  "photos": "PD and CC-BY-SA-4.0"
+}

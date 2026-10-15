@@ -1,0 +1,9 @@
+(function(root){'use strict';
+ const roles={guest:['游客',[]],user:['普通用户',['own']],leader:['团体负责人',['own','group']],front:['前台核验员',['front']],reviewer:['资格审核员',['review']],support:['客服／申诉处理员',['support']],maintenance:['场地维护员',['maintenance']],venue:['场馆管理员',['venue','audit']],finance:['财务人员',['finance']],auditor:['审计／监督员',['audit']],platform:['平台管理员',['platform','audit']],system:['系统维护者',['system']]};
+ const read=['accountInfo','snapshot','dates','price','slot','inventory','availability','publicTransfers','roleInfo','modelStatus'];
+ const own=['getOrder','orders','createOrder','pay','cancel','refund','refundable','recharge','saveProfile','setPhone','bind','buyMember','saveImage','submitHealth','preferenceInfo','setPreferences','clearPreferences','event','feedback','recommend','transferPreview','startTransfer','joinQueue','queueInfo','leaveQueue','myTransfers','transferInfo','withdrawTransfer','declineOffer','acceptTransfer','retryTransferRefund','validCredential','assistant','checkQuota','appeal','schoolRequest','deepWaterSubmit','deepWaterInfo','handoverQuote','waitSlot','acceptWait','ownRequests'];
+ const permission={group:'group',redeem:'front',reviewHealth:'review',configurePolicy:'platform',settings:'venue',report:'audit',workspace:'work',workAction:'work',switchRole:'role',schoolReview:'review',configureModel:'system',advance:'demo',reset:'system',expire:'read'};
+ function capability(method){if(read.includes(method))return 'read';if(own.includes(method))return 'own';return permission[method]||'denied';}
+ function permits(role,method){const c=capability(method);return c==='read'||c==='role'||c==='work'&&role!=='guest'&&role!=='user'||c==='own'&&['user','leader'].includes(role)||roles[role]?.[1].includes(c)||c==='demo'&&['venue','system'].includes(role);}
+ const api={roles,capability,permits};if(typeof module==='object'&&module.exports)module.exports=api;else root.VenueRoles=api;
+})(typeof window!=='undefined'?window:globalThis);

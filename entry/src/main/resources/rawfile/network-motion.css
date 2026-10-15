@@ -1,0 +1,45 @@
+/* Moving home network, independent of the booking grid and real venue photo. */
+.hero-copy{position:relative;isolation:isolate;overflow:hidden;background:#096f7b;color:#fff}
+.hero-copy>:not(.motion-backdrop){position:relative;z-index:2}
+.motion-backdrop{position:absolute!important;inset:0;z-index:0!important;pointer-events:none;overflow:hidden;contain:strict}
+.motion-gradient{position:absolute;inset:-18%;background:linear-gradient(115deg,#095b65 4%,#087d8e 48%,#1767a3 92%);animation:campus-current 15s ease-in-out infinite alternate;transform-origin:center}
+.motion-backdrop::after{content:'';position:absolute;inset:0;background-image:linear-gradient(#d5ffff0d 1px,transparent 1px),linear-gradient(90deg,#d5ffff0d 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.network-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero-copy h1{color:#fff;text-shadow:0 1px 2px #06465845}.hero-copy p{color:#e4f4f8}.hero-copy .campus-tag{color:#c8f5ec}
+.hero-copy>.primary{background:#fff;color:#12445a;border-color:#fff;box-shadow:0 3px 12px #053e5226}.hero-copy>.primary:hover{background:#edfaff;color:#103f59}
+.hero-copy .campus-switch{color:#e1f2f8}.hero-copy .campus-switch.active{color:#fff;border-color:#c6fff1;background:#ffffff12}
+.hero-copy .carousel-foot{align-items:center;width:100%;gap:4px}
+.hero-copy .motion-toggle{margin-left:auto;padding:8px 10px;border:1px solid #d7f5ff70;border-radius:5px;min-height:36px;color:#fff;background:#06536c4d;font-size:11px;line-height:1.6;white-space:nowrap}
+.hero-copy .motion-toggle:hover{background:#ffffff20}.hero-copy .motion-toggle:focus-visible{outline-color:#ffe4a3}
+.hero-photo figcaption{color:var(--ink)}.campus-particles{display:none!important}
+.network-paused .motion-gradient,.motion-paused .motion-gradient{animation-play-state:paused}
+@keyframes campus-current{from{transform:translate3d(-3%,-2%,0) scale(1.03) rotate(-3deg)}to{transform:translate3d(4%,3%,0) scale(1.12) rotate(3deg)}}
+@media(max-width:760px){.hero-copy{padding:28px 24px}.hero-copy .carousel-foot{gap:2px}.hero-copy .campus-switch{padding:8px 10px}.hero-copy .motion-toggle{font-size:10px;padding:8px;min-height:36px}.motion-backdrop::after{background-size:30px 30px}}
+@media(prefers-reduced-motion:reduce){.motion-gradient{animation:none!important;transform:none!important}.network-canvas{display:none!important}.hero-copy .motion-toggle{opacity:.75}}
+
+/* Campus court atmosphere across the whole page; white content panels stay readable. */
+:root{background:#deedf4}body{background:transparent;isolation:isolate}#app{position:relative;z-index:1}
+.ambient-backdrop{position:fixed!important;inset:0;z-index:0!important;pointer-events:none;overflow:hidden;contain:strict}
+.ambient-gradient{background:linear-gradient(125deg,#d2ece2 2%,#d9edf5 42%,#dce5f8 80%,#e1eef1 100%);animation:campus-ambient-current 26s ease-in-out infinite alternate}
+.ambient-backdrop::after{background-image:radial-gradient(circle at 88% 32%,transparent 0,transparent 103px,#1b87991a 104px,#1b87991a 106px,transparent 107px),linear-gradient(#2d7e9a12 1px,transparent 1px),linear-gradient(90deg,#2d7e9a12 1px,transparent 1px);background-size:auto,56px 56px,56px 56px}
+.ambient-backdrop::before{content:'';position:absolute;right:-120px;top:37%;width:400px;height:230px;border:2px solid #26889d1a;border-radius:115px;transform:rotate(-17deg);box-shadow:0 0 0 22px #25889e08,0 0 0 44px #25889e08}
+@keyframes campus-ambient-current{from{transform:translate3d(-2%,-2%,0) rotate(-2deg) scale(1.02)}to{transform:translate3d(3%,3%,0) rotate(2deg) scale(1.08)}}
+@media(max-width:760px){.ambient-backdrop::after{background-size:auto,42px 42px,42px 42px}.ambient-backdrop::before{right:-240px}}
+
+.motion-settings{max-width:760px;margin:0 auto}.motion-settings h2{margin-bottom:12px}
+.motion-option{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:23px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.motion-option span{display:block}.motion-option strong{display:block;font-size:15px}.motion-option small{display:block;color:var(--muted);font-size:12px;line-height:1.8;margin-top:5px}
+.motion-option input{appearance:none;flex:0 0 46px;width:46px;height:27px;border:1px solid #819eac;border-radius:18px;background:#e4edf1;position:relative;cursor:pointer;transition:background 160ms}
+.motion-option input::after{content:'';position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #12445933;transition:transform 160ms}
+.motion-option input:checked{background:#176f73;border-color:#176f73}.motion-option input:checked::after{transform:translateX(19px)}.motion-option input:focus-visible{outline:3px solid #dba85b;outline-offset:3px}.motion-option input:disabled{opacity:.5;cursor:default}
+.button-pop{animation:campus-button-pop 260ms ease-out!important}
+@keyframes campus-button-pop{0%{transform:scale(.96)}55%{transform:scale(1.025)}100%{transform:scale(1)}}
+.click-feedback{position:fixed;width:1px;height:1px;z-index:120;pointer-events:none}.click-feedback i{position:absolute;width:4px;height:4px;border-radius:50%;background:#23aaa1;animation:campus-click-spark 520ms ease-out forwards;transform:rotate(var(--angle)) translateX(4px)}
+@keyframes campus-click-spark{to{transform:rotate(var(--angle)) translateX(29px) scale(.25);opacity:0}}
+.booking-confetti{position:fixed;inset:0;overflow:hidden;contain:strict;pointer-events:none;z-index:115}
+.booking-confetti i{position:absolute;left:var(--x);top:62%;width:7px;height:12px;border-radius:2px;background:var(--color);opacity:0;animation:campus-confetti 1650ms cubic-bezier(.17,.67,.5,1) var(--delay) both}
+.booking-confetti i:nth-child(3n){width:8px;height:8px;border-radius:50%}.booking-confetti i:nth-child(5n){width:5px;height:14px}
+@keyframes campus-confetti{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}8%{opacity:1}43%{opacity:1;transform:translate3d(calc(var(--dx)*.68),calc(var(--rise)*-1),0) rotate(calc(var(--spin)*.55))}100%{opacity:0;transform:translate3d(var(--dx),var(--fall),0) rotate(var(--spin))}}
+.success-mark{animation:campus-success 480ms cubic-bezier(.2,.8,.3,1.2)}
+@keyframes campus-success{from{transform:scale(.65) rotate(-12deg);opacity:.3}to{transform:scale(1) rotate(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.booking-confetti,.click-feedback{display:none!important}.button-pop,.success-mark{animation:none!important}.motion-option input,.motion-option input::after{transition:none!important}}
