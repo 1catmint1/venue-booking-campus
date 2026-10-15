@@ -1,0 +1,12 @@
+{
+  "businessCodeChangedSinceExported10Tests": false,
+  "originalSourceFileCount": 80,
+  "currentSourceFileCount": 82,
+  "newOrChangedMaterials": [
+    "scoring-oriented documentation",
+    "editable 6-slide PPT",
+    "README and delivery record"
+  ],
+  "testResult": "10 pass; same implementation bytes",
+  "native": "latest build stopped by CPU guard; no stale HAP included"
+}

@@ -13,6 +13,7 @@
 - [角色权限矩阵](角色权限矩阵.md)
 - [计价与认证说明](计价与认证说明.md)
 - [混杂历史评估](推荐噪声评估.md)
+- [六页演示稿](presentation/北理场馆预约_项目演示草稿_v1.3.0.pptx)
 - [照片来源](asset-provenance.json)
 
 ## 本地运行
@@ -28,3 +29,5 @@ Python3可执行，或用VENUE_TEST_PYTHON指定已有解释器后，运行 node
 代码使用MIT；中关村照片为公有领域，良乡照片为HoweyYuan的CC BY-SA 4.0作品，详见THIRD-PARTY-NOTICES.md。该照片作者不为应用背书。
 
 原复现基线v1.0及创新v1.1/v1.2已冻结备份，私有历史库保留。此公开仓库仅接纳脱敏参赛源码，不改变私有历史的可见性。
+
+公开参赛源码：[GitHub](https://github.com/1catmint1/venue-booking-campus)、[GitCode](https://gitcode.com/2301_80739235/venue-booking-campus)。私有历史库继续保留。
