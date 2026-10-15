@@ -1,0 +1,28 @@
+✔ actual application RPC shares one stock across independent authenticated visitor sessions (971.958ms)
+✔ actual queue/payment/refund RPC preserves global FIFO and invalidates old consumption code (2045.9106ms)
+{"event":"shared-application-error","message":"请求来源或确认令牌无效"}
+{"event":"shared-application-error","message":"此业务方法不对客户端开放"}
+✔ shared application denies forged price, csrf, management identity and fixture administration (697.4199ms)
+✔ closed isolated dataset rejects actual application mutations and cannot affect another namespace (493.0404ms)
+✔ multi-slot transaction rejects the whole order when either shared slot is occupied (816.051ms)
+✔ adult and child swim products share the same physical capacity across visitors (782.5221ms)
+✔ concurrent duplicate actual order requests preserve one order and original price snapshot (2098.1416ms)
+✔ expired global offer advances to the next queue member through actual queueInfo RPC (846.47ms)
+✔ legacy personal demo orders remain byte-preserved and read-only instead of merging inventory (760.7026ms)
+✔ qualification changes reprice new quotes while existing payment and refund snapshots stay fixed (1558.551ms)
+✔ database independently rejects an extra physical stock claim outside the application API (490.4171ms)
+✔ multiple role accounts remain scoped and revoked user grants cannot mutate shared stock (3917.8014ms)
+✔ transient internal D1 failures recover through the actual createOrder transaction (1230.2899ms)
+✔ lost commit acknowledgement retries the same operation without duplicating orders or inventory (717.9551ms)
+✔ revoked waiters do not permanently block a newly available shared slot (1185.9682ms)
+✔ stock reads also recover from overload and coalesce requests while the query is pending (1143.3361ms)
+✔ staggered actual waitSlot traffic drains all partial batches without leaving unresolved requests (2153.3251ms)
+✔ full actual application payment/refund and 16 FIFO promotions preserve receipts and privacy (22055.1967ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 44319.4083

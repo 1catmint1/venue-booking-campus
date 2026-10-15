@@ -1,0 +1,91 @@
+{
+  "booking": {
+    "p50": 10204,
+    "p95": 14738,
+    "p99": 16183,
+    "max": 16732
+  },
+  "queue": {
+    "p50": 6175,
+    "p95": 16929,
+    "p99": 20078,
+    "max": 26260
+  },
+  "networkPeak": 10000,
+  "successOrders": 1,
+  "conflicts": 9999,
+  "queueReceipts": 9999,
+  "promotions": 16,
+  "hostCpuPeak": 54.1,
+  "samples": 295,
+  "run": "app-shared10000-mv9wpsnv",
+  "githubRun": "https://github.com/1catmint1/venue-booking-campus/actions/runs/38790802650",
+  "originalPaidCents": 2000,
+  "promotionAmounts": [
+    {
+      "refund": 2000,
+      "payment": 1000
+    },
+    {
+      "refund": 1000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    },
+    {
+      "refund": 2000,
+      "payment": 2000
+    }
+  ],
+  "complete": true
+}

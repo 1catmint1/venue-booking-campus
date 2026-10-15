@@ -1,8 +1,8 @@
 {
-  "name": "venue-booking-review",
-  "version": "1.3.0",
+  "name": "venue-booking-shared-application",
+  "version": "1.4.0",
   "type": "module",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node scripts/build.mjs"
   }
 }

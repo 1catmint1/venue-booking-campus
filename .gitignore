@@ -9,3 +9,5 @@ work/test-data/*
 *.p7b
 *.cer
 *.sqlite
+
+review-tools/shared-app/fixture-*/

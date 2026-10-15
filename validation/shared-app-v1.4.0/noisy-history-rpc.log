@@ -1,0 +1,10 @@
+{"mixedEvents":1000,"beforeTop":"lx-badminton","afterTop":"zgc-tennis","confidence":0.9179149218821088,"otherTop":"lx-badminton","scope":"actual shared RPC; deterministic historical fixtures; local rate windows rebased every40, not 1000 rapid-user capacity"}
+✔ actual shared application recommendation learns 1000 mixed events and preserves actor separation (82003.3174ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82211.3479

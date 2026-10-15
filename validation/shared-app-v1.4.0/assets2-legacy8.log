@@ -1,0 +1,18 @@
+✔ same-origin, CSRF, forged management/price/identity/order ownership denied (547.2211ms)
+✔ twelve roles/multi-role scope and revocation are server-derived (3034.0521ms)
+✔ each public visitor has isolated virtual inventory/identity and durable reload (395.4717ms)
+✔ table prices, simulated qualification, stale quote and frozen pending/refund totals (1322.1761ms)
+✔ concurrent same-inventory SQLite CAS rejects all but one without lost writes (3070.4267ms)
+✔ FIFO wait reservation survives DB reconstruction and rejects direct queue jump (1326.9012ms)
+✔ personal API key encrypted, not returned; no cloud call without consent; custom private target rejected (180.2269ms)
+✔ deferred content-versioned frontend keeps script order and never caches session data (90.4508ms)
+✔ real venue photos are served intact with correct MIME and no inherited SVG (195.4151ms)
+✔ candidate metadata, new stylesheet, and privacy-safe contacts remain coherent (2.7026ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10371.9134

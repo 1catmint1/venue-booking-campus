@@ -1,0 +1,127 @@
+{
+  "verifiedUTC": "2026-10-15T19:09:08.689Z",
+  "afterRedeployment": true,
+  "status": {
+    "run": "app-shared10000-mv9wpsnv",
+    "claims": [
+      {
+        "resource": "lx-p-17",
+        "date": "2026-10-17",
+        "start": 18,
+        "end": 19,
+        "n": 1
+      }
+    ],
+    "orders": [
+      {
+        "status": "paid",
+        "n": 1
+      },
+      {
+        "status": "refunded",
+        "n": 16
+      }
+    ],
+    "queue": [
+      {
+        "status": "accepted",
+        "n": 16,
+        "first": 20013,
+        "last": 20028
+      },
+      {
+        "status": "waiting",
+        "n": 9983,
+        "first": 20029,
+        "last": 30011
+      }
+    ],
+    "ops": [
+      {
+        "method": "/api/demo-session",
+        "outcome": "200",
+        "n": 34
+      },
+      {
+        "method": "/api/ui-state",
+        "outcome": "200",
+        "n": 1
+      },
+      {
+        "method": "acceptWait",
+        "outcome": "200",
+        "n": 32
+      },
+      {
+        "method": "acceptWait",
+        "outcome": "400",
+        "n": 3
+      },
+      {
+        "method": "createOrder",
+        "outcome": "200",
+        "n": 1
+      },
+      {
+        "method": "getOrder",
+        "outcome": "200",
+        "n": 1
+      },
+      {
+        "method": "pay",
+        "outcome": "200",
+        "n": 2
+      },
+      {
+        "method": "pay",
+        "outcome": "400",
+        "n": 1
+      },
+      {
+        "method": "queueInfo",
+        "outcome": "200",
+        "n": 17
+      },
+      {
+        "method": "refund",
+        "outcome": "200",
+        "n": 16
+      },
+      {
+        "method": "schoolRequest",
+        "outcome": "200",
+        "n": 1
+      },
+      {
+        "method": "schoolReview",
+        "outcome": "200",
+        "n": 1
+      },
+      {
+        "method": "slot",
+        "outcome": "200",
+        "n": 16
+      },
+      {
+        "method": "switchRole",
+        "outcome": "200",
+        "n": 34
+      },
+      {
+        "method": "validCredential",
+        "outcome": "200",
+        "n": 32
+      },
+      {
+        "method": "waitSlot",
+        "outcome": "200",
+        "n": 9999
+      },
+      {
+        "method": "workAction",
+        "outcome": "200",
+        "n": 32
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "verifiedUTC": "2026-10-15T19:10:28.533Z",
+  "result": [
+    {
+      "label": "normal",
+      "path": "/api/health",
+      "status": 200,
+      "health": {
+        "alive": true,
+        "version": "1.4.0-shared-app",
+        "mode": "shared-inventory-demonstration",
+        "storage": "D1 full application transactions",
+        "payment": "local-simulation",
+        "schoolSourceReady": false
+      }
+    },
+    {
+      "label": "normal",
+      "path": "/api/test/status?run=app-shared10000-mv9wpsnv",
+      "status": 404
+    },
+    {
+      "label": "isolated",
+      "path": "/api/health",
+      "status": 200,
+      "health": {
+        "alive": true,
+        "version": "1.4.0-shared-app",
+        "mode": "shared-inventory-demonstration",
+        "storage": "D1 full application transactions",
+        "payment": "local-simulation",
+        "schoolSourceReady": false
+      }
+    },
+    {
+      "label": "isolated",
+      "path": "/api/test/status?run=app-shared10000-mv9wpsnv",
+      "status": 404
+    }
+  ]
+}
