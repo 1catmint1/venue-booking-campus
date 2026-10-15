@@ -1,0 +1,54 @@
+name: Isolated full application shared inventory burst
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        required: true
+        type: string
+      prepared:
+        required: true
+        type: string
+      until:
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: shared-application-pressure
+  cancel-in-progress: false
+jobs:
+  producer:
+    if: github.repository == '1catmint1/venue-booking-campus'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        producer: [0, 1]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Run the isolated authorized participant set
+        env:
+          LOAD_RUN: ${{ inputs.run }}
+          LOAD_PREPARED: ${{ inputs.prepared }}
+          LOAD_UNTIL: ${{ inputs.until }}
+          LOAD_PRODUCER: ${{ matrix.producer }}
+          LOAD_SIGN_SECRET: ${{ secrets.VENUE_LOAD_SIGN }}
+          LOAD_ADMIN_TOKEN: ${{ secrets.VENUE_LOAD_ADMIN }}
+          OAI_SITES_SERVICE_TOKEN: ${{ secrets.VENUE_LOAD_SERVICE }}
+        run: node --max-old-space-size=384 cloud-load/driver/shared-app-producer.cjs
+      - name: Preserve synthetic evidence in logs without artifact storage
+        if: always()
+        env:
+          PRODUCER: ${{ matrix.producer }}
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),z=require('node:zlib');
+          const p=Number(process.env.PRODUCER),f='reports/producer-'+p+'.json';
+          if(!fs.existsSync(f)){console.log('VENUE_REPORT_MISSING '+p);process.exit(1);}
+          const s=z.gzipSync(fs.readFileSync(f)).toString('base64'),n=Math.ceil(s.length/4000);
+          for(let i=0;i<n;i++)console.log('VENUE_REPORT '+p+' '+i+'/'+n+' '+s.slice(i*4000,(i+1)*4000));
+          NODE
