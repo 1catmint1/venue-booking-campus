@@ -1,0 +1,28 @@
+{
+  "sections": [
+    {
+      "name": "rpc",
+      "sha256": "e2c0872f8273b81b2708fe57d508e17ff40a3d408556aad18b1d6d20d06743fb",
+      "byteIdentical": true
+    },
+    {
+      "name": "wave",
+      "sha256": "f058614237264db89d7fa40fbb3a1a36aade9c14555c93777d6b68a96f43b3ef",
+      "byteIdentical": true
+    }
+  ],
+  "change": "periodic evidence checkpoints and stop after a completed failing round; between cohorts only",
+  "scales": [
+    10,
+    30,
+    50,
+    100,
+    1000
+  ],
+  "rounds": {
+    "business": 20,
+    "extension1000": 1
+  },
+  "resumeChange": "bounded scales and roundStarts only; rpc and wave hashes rechecked unchanged",
+  "resumeHead": "74a0398fabbaf42e1fa56be4d79cb158f50098da"
+}

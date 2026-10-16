@@ -1,0 +1,25 @@
+{
+  "workerSha256": "91219d5d1a956f12bc8aa6357180e7bb7e023f6cc6fd6dabc12c4b0858f3010a",
+  "scope": "Windows Edge; localhost isolated SQLite; one sample per action; API/DOM/rAF distinct; not public P99",
+  "booking": {
+    "sharedCommittedMethod": "createOrder",
+    "sharedCommittedMs": "61.3999999910593",
+    "sharedUiAction": "pending",
+    "sharedUiCompletedMs": "65.30000001192093",
+    "sharedUiPaintMs": "155.6000000089407"
+  },
+  "payment": {
+    "sharedCommittedMethod": "pay",
+    "sharedCommittedMs": "67.8999999910593",
+    "sharedUiAction": "pay-order",
+    "sharedUiCompletedMs": "72.20000000298023",
+    "sharedUiPaintMs": "97.40000000596046"
+  },
+  "waitlist": {
+    "sharedCommittedMethod": "waitSlot",
+    "sharedCommittedMs": "67.90000000596046",
+    "sharedUiAction": "toggle-slot",
+    "sharedUiCompletedMs": "69.40000000596046",
+    "sharedUiPaintMs": "294.20000000298023"
+  }
+}

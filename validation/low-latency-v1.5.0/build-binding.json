@@ -1,0 +1,14 @@
+{
+  "workerSha256": "91219d5d1a956f12bc8aa6357180e7bb7e023f6cc6fd6dabc12c4b0858f3010a",
+  "matchesDelivered": true,
+  "managedSourceCommit": "8dbe07b119ff5885304e031179f0ac06801bf382",
+  "savedVersion": 17,
+  "pressureRuns": [
+    38891752916,
+    38894158154
+  ],
+  "baselineRun": 38886323704,
+  "sourceTests": 33,
+  "normalVersion": 5,
+  "native": "rawfile offline v1.3.0; separate coverage"
+}

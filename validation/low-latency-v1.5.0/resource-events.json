@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-16",
+  "prelaunchGuards": [
+    {
+      "operation": "supplementary fixture bridge test",
+      "samplesPercent": [
+        10,
+        75
+      ],
+      "action": "launch refused; waited",
+      "recoverySamplesPercent": [
+        2,
+        4,
+        12
+      ]
+    },
+    {
+      "operation": "candidate idle controller",
+      "reason": "bounded CIM query timeout",
+      "action": "launch refused; waited; total CPU tick delta resampled",
+      "recoveryRecord": "recovery-cpu-samples.jsonl"
+    },
+    {
+      "operation": "dual-repository sync",
+      "reason": "bounded CPU sample unavailable during owned-work monitoring",
+      "lastRecordedCPU": 23,
+      "action": "owned controller stopped; fresh recovery samples 50/26; no Git/rg left active; repository verified clean on validation branch"
+    }
+  ],
+  "otherTaskProcessesChanged": false,
+  "activeAbort": {
+    "run": 38891752916,
+    "cpu": 76.8,
+    "action": "cancel own remote run; close owned isolated datasets; preserve raw records",
+    "utc": "2026-10-16T11:20:40.345Z"
+  },
+  "resume": {
+    "run": 38894158154,
+    "cpuPeak": 63,
+    "complete": true
+  }
+}

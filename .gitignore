@@ -11,3 +11,11 @@ work/test-data/*
 *.sqlite
 
 review-tools/shared-app/fixture-*/
+
+*.sqlite-wal
+*.sqlite-shm
+browser-worker/dist/
+review-tools/low-latency/fixture-*/
+review-tools/low-latency/bridge-*/
+review-tools/low-latency/profile-fixture-*/
+review-tools/low-latency/reports/

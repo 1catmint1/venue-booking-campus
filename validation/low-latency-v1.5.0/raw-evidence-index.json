@@ -1,0 +1,26 @@
+{
+  "storage": "E盘完整交付目录",
+  "records": [
+    {
+      "file": "baseline-remote-r2/raw-results.json",
+      "bytes": 13175018,
+      "sha256": "34889e7e04594583326d42a103148c2ac0c3751b234c0e3ec7087a41245eceff"
+    },
+    {
+      "file": "candidate-remote-r2/raw-results.json",
+      "bytes": 13228419,
+      "sha256": "0e0720798c53ffff88c341e68b18ab2b6160c16e03e2c0ea7568f7ec5b95fc9e"
+    },
+    {
+      "file": "candidate-remote-r2/canceled-raw-results.json",
+      "bytes": 6944516,
+      "sha256": "5ba0a5d64d4de25bb3bd1dfcc001fe2b93b6b1d0b0171b7c94e62aa3f62ef184"
+    },
+    {
+      "file": "candidate-r2-resume/raw-results.json",
+      "bytes": 6449865,
+      "sha256": "375bba1e36412d021e0a35313116f59c4f28979aa992003659e22269b33db84f"
+    }
+  ],
+  "publicData": "汇总、断言、阶段分解及原始记录哈希；合成会话凭证仅留隔离原始交付"
+}

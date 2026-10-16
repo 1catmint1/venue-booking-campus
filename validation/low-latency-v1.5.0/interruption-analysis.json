@@ -1,0 +1,37 @@
+{
+  "records": 200,
+  "allRetained": true,
+  "cpu": 76.8,
+  "byStatus": {
+    "200": 100,
+    "403": 100
+  },
+  "maxMs": 2226.676438000053,
+  "functionalAssertions": [
+    {
+      "name": "all independent orders durably created",
+      "ok": false,
+      "run": "app-ll-c-mvav62gg-100-8-i"
+    },
+    {
+      "name": "all simulated payments confirmed",
+      "ok": false,
+      "run": "app-ll-c-mvav62gg-100-8-i"
+    },
+    {
+      "name": "independent capacity and paid persistence",
+      "ok": false,
+      "run": "app-ll-c-mvav62gg-100-8-i"
+    },
+    {
+      "name": "durable queue receipts and ordered unique sequence",
+      "ok": true,
+      "run": "app-ll-c-mvav62gg-100-8-q"
+    },
+    {
+      "name": "one hot stock and all waiters persisted",
+      "ok": true,
+      "run": "app-ll-c-mvav62gg-100-8-q"
+    }
+  ]
+}

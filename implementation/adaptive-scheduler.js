@@ -1,0 +1,16 @@
+// Shared state is plain data only; every caller awaits timers and I/O created by itself.
+const llExecutionBudgets=new WeakMap();
+function llBudget(db,kind){let m=llExecutionBudgets.get(db);if(!m){m=new Map();llExecutionBudgets.set(db,m)}let c=m.get(kind);if(!c){c={permits:2,min:1,max:2,targetMs:8,ewma:0,low:0,lastFeedback:0};m.set(kind,c)}return c}
+async function batchedShared(db,kind,value,execute,trace){
+ let qs=sharedQueues.get(db);if(!qs){qs=new Map();sharedQueues.set(db,qs)}let q=qs.get(kind);if(!q){q={items:[],running:0,queuedBytes:0};qs.set(kind,q)}const budget=llBudget(db,kind),weight=new TextEncoder().encode(JSON.stringify(value)).length;
+ if(q.items.length>=12000||q.queuedBytes+weight>16000000)throw sharedError('受理队列已满，可使用原请求标识重试',503);
+ const item={value,weight,at:Date.now(),mono:llClock(),trace,done:false,processing:false};q.items.push(item);q.queuedBytes+=weight;const deadline=Date.now()+90000,limit=kind==='apply'?32:64;
+ try{while(!item.done){if(Date.now()>=deadline){if(!item.processing){const at=q.items.indexOf(item);if(at>=0){q.items.splice(at,1);q.queuedBytes-=weight}}throw sharedError('受理等待超时，请按原请求标识核对或重试，未确认前不视为成功',503)}
+  if(q.items.length&&q.running<budget.permits){let bytes=0,count=0;for(const entry of q.items){if(count>=limit||count&&bytes+entry.weight>900000)break;bytes+=entry.weight;count++}const batch=q.items.splice(0,count),batchStart=llClock();q.queuedBytes-=bytes;q.running++;for(const x of batch){x.processing=true;llAdd(x.trace,kind+'Queue',batchStart-x.mono);if(x.trace){x.trace.batchSizes.push({kind,size:batch.length,permits:budget.permits});x.trace.attempts++}}
+   try{let results;for(let attempt=0,until=Date.now()+60000;attempt<18;attempt++){try{results=await execute(batch.map(x=>x.value));break}catch(error){const message=error.message||'';if(attempt===17||Date.now()>=until||/syntax|constraint|too big|SQLITE_FULL|corrupt|SHARED_STOCK_CAPACITY|SQLITE_AUTH/i.test(message)||!/D1_ERROR|busy|overload|too many|timeout|reset|connection|network|internal error/i.test(message))throw error;const backoff=Math.random()*Math.min(2500,100*2**attempt)+40;for(const x of batch)if(x.trace){x.trace.retryCount=(x.trace.retryCount||0)+1;llAdd(x.trace,'retryBackoff',backoff)}await pause(backoff)}}
+    for(let i=0;i<batch.length;i++){const x=batch[i];x.result=results[i];x.done=true;x.doneAt=llClock();llAdd(x.trace,kind+'Execute',x.doneAt-batchStart);if(kind==='apply'&&x.trace)x.trace.confirmedAt=x.doneAt;}
+   }catch(error){error.sharedStage=kind;for(const x of batch){x.error=error;x.done=true;x.doneAt=llClock();}}finally{q.running--;const now=llClock(),delay=batch.reduce((n,x)=>n+Math.max(0,batchStart-x.mono),0)/batch.length;budget.ewma=budget.ewma*.8+delay*.2;if(now-budget.lastFeedback>=8){if(budget.ewma>budget.targetMs){budget.permits=Math.max(budget.min,Math.floor(budget.permits*.75));budget.low=0}else if(budget.ewma<budget.targetMs*.5&&++budget.low>=4){budget.permits=Math.min(budget.max,budget.permits+1);budget.low=0}budget.lastFeedback=now}if(!q.running&&!q.items.length)qs.delete(kind)}
+  }else await pause(q.items[0]===item?2:4);
+ }if(item.doneAt)llAdd(trace,kind+'CompletionLag',llClock()-item.doneAt);if(item.error)throw item.error;return item.result;
+ }finally{/* No cross-request callback or I/O object is retained. */}
+}

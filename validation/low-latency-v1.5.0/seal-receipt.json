@@ -1,0 +1,42 @@
+{
+  "complete": true,
+  "deployment": {
+    "id": "appgdep_6ad20d18bd04819181ed89ea7d6d7b57",
+    "status": "succeeded",
+    "version_id": "appgprj_6acff80b9acc8191b284d32fdd9afaa2~appgver_d01af5c6f79c8191a9900755b755461c",
+    "envRevision": 19
+  },
+  "testAccess": {
+    "enabledRemoved": true,
+    "adminRemoved": true,
+    "signRemoved": true,
+    "expires": 0,
+    "postCloseStatus": 404
+  },
+  "audience": {
+    "mode": "custom",
+    "allowedUsers": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "githubTemporarySecrets": [
+    {
+      "name": "VENUE_LL_SIGN",
+      "deleted": true,
+      "evidence": "Both run controllers record cleanup"
+    },
+    {
+      "name": "VENUE_LL_ADMIN",
+      "deleted": true,
+      "evidence": "Both run controllers record cleanup"
+    },
+    {
+      "name": "VENUE_LL_SERVICE",
+      "deleted": true,
+      "evidence": "Both run controllers record cleanup"
+    }
+  ],
+  "normalVersion": 5,
+  "normalHealth": "1.4.0-shared-app",
+  "platformSubmitted": false
+}
