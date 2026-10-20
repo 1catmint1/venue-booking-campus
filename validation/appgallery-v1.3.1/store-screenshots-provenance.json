@@ -1,0 +1,41 @@
+[
+  {
+    "name": "home",
+    "original": {
+      "width": 2537,
+      "height": 1216
+    },
+    "export": {
+      "width": 1920,
+      "height": 1080
+    },
+    "source": "same frozen v1.3.0 rawfile code rendered in isolated browser preview; not native device test",
+    "sha256": "af637131a4ad911f927b73f056e3d9b57c02cd01d4de7b0a3d60c54fdf4d9aac"
+  },
+  {
+    "name": "preferences",
+    "original": {
+      "width": 2537,
+      "height": 1216
+    },
+    "export": {
+      "width": 1920,
+      "height": 1080
+    },
+    "source": "same frozen v1.3.0 rawfile code rendered in isolated browser preview; not native device test",
+    "sha256": "5edbcc8b75db9354888d972ccec52cc0c8a3bb4a8c6865b32cea8f2df017b677"
+  },
+  {
+    "name": "fairness",
+    "original": {
+      "width": 2537,
+      "height": 1216
+    },
+    "export": {
+      "width": 1920,
+      "height": 1080
+    },
+    "source": "same frozen v1.3.0 rawfile code rendered in isolated browser preview; not native device test",
+    "sha256": "37e6c38dedf6b571e2a70aadfba543b73f775387086862405a7dded52a44403e"
+  }
+]

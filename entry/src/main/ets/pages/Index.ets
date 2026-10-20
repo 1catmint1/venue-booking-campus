@@ -3,8 +3,8 @@ import { fileIo, picker } from '@kit.CoreFileKit';
 import { util } from '@kit.ArkTS';
 import { common } from '@kit.AbilityKit';
 import { camera } from '@kit.CameraKit';
-import { componentSnapshot } from '@kit.ArkUI';
-import { image } from '@kit.ImageKit';
+
+
 
 class LocalDemoBridge {
   private filePath: string = '';
@@ -70,46 +70,7 @@ class LocalDemoBridge {
     }
   }
 
-  saveOwnedFrame(map: image.PixelMap, serial: number): void {
-    if (!this.context) {
-      return;
-    }
-    const target = this.context.filesDir + '/venue-native-frame.png';
-    const packer = image.createImagePacker();
-    packer.packing(map, { format: 'image/png', quality: 100 }).then((buffer: ArrayBuffer) => {
-      let opened: fileIo.File | undefined = undefined;
-      try {
-        opened = fileIo.openSync(target, fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC | fileIo.OpenMode.WRITE_ONLY);
-        const count = fileIo.writeSync(opened.fd, buffer);
-        fileIo.fsyncSync(opened.fd);
-        fileIo.closeSync(opened);
-        opened = undefined;
-        console.info('VenueDemo owned frame saved bytes=' + count.toString());
-      } catch (_) {
-        if (opened) {
-          try { fileIo.closeSync(opened); } catch (_) { }
-        }
-        console.error('VenueDemo owned frame save failed');
-      }
-      const encoded = new util.Base64Helper().encodeToStringSync(new Uint8Array(buffer));
-      const chunks = Math.ceil(encoded.length / 1000);
-      console.info('VenueDemo frame stream begin serial=' + serial.toString() + ' bytes=' + buffer.byteLength.toString() + ' chunks=' + chunks.toString());
-      for (let index = 0; index < chunks; index++) {
-        console.info('VenueDemo frame chunk ' + serial.toString() + ' ' + index.toString() + ' ' + encoded.slice(index * 1000, (index + 1) * 1000));
-      }
-      console.info('VenueDemo frame stream end serial=' + serial.toString());
-      packer.release();
-      map.release();
-    }).catch(() => {
-      console.error('VenueDemo owned frame packing failed');
-      packer.release();
-      map.release();
-    });
-  }
 
-  captureFrame(map: image.PixelMap, serial: number): void {
-    this.saveOwnedFrame(map, serial);
-  }
 }
 
 @Entry
@@ -117,7 +78,6 @@ class LocalDemoBridge {
 struct Index {
   private controller: webview.WebviewController = new webview.WebviewController();
   private bridge: LocalDemoBridge = new LocalDemoBridge();
-  @StorageLink('venueQaCaptureSerial') @Watch('captureRequested') private captureSerial: number = 0;
 
   aboutToAppear(): void {
     const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -131,36 +91,6 @@ struct Index {
       // The offline page may still be loading.
     }
     return true;
-  }
-
-  private captureRequested(): void {
-    if (this.captureSerial <= 0) {
-      return;
-    }
-    setTimeout(() => {
-      try {
-        this.controller.runJavaScript('JSON.stringify({images:document.images.length,loaded:Array.from(document.images).filter(x=>x.complete&&x.naturalWidth>0).length,data:Array.from(document.images).filter(x=>x.src.startsWith("data:")).length})', (err, metrics) => {
-          if (!err || err.code === 0) {
-            console.info('VenueDemo DOM image metrics=' + metrics);
-          } else {
-            console.info('VenueDemo DOM image metrics unavailable');
-          }
-        });
-      } catch (_) {
-        console.info('VenueDemo DOM image metrics request unavailable');
-      }
-      try {
-        componentSnapshot.get('VenueDemoSurface', (err, map) => {
-          if ((err && err.code !== 0) || !map) {
-            console.error('VenueDemo owned component capture failed');
-            return;
-          }
-          this.bridge.captureFrame(map, this.captureSerial);
-        });
-      } catch (_) {
-        console.error('VenueDemo owned component capture unavailable');
-      }
-    }, 700);
   }
 
   build() {
@@ -200,7 +130,7 @@ struct Index {
         })
         .onPageEnd(() => {
           console.info('VenueDemo offline page load completed');
-          this.captureRequested();
+
         })
         .width('100%')
         .height('100%')
